@@ -55,5 +55,6 @@ class Persona
         $sql="insert into persona (nombres,papellido,sapellido) values (
         '$this->nombres', '$this->papellido','$this->sapellido')";
         $this->con->executeQuery($sql);
+        header('Location: ../vista/registroPersona.php');
     }
 }
