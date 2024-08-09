@@ -11,11 +11,7 @@
 <body>
     <div class="container mt-5">
         <h2>Registrar Cliente</h2>
-        <form action="guardar_cliente.php" method="POST">
-            <div class="mb-3">
-                <label for="codigo_cliente" class="form-label">Código de Cliente</label>
-                <input type="number" class="form-control" id="codigo_cliente" name="codigo_cliente" required>
-            </div>
+        <form action="../controlador/ctrlCliente.php" method="POST">
             <div class="mb-3">
                 <label for="nombre_cliente" class="form-label">Nombre del Cliente</label>
                 <input type="text" class="form-control" id="nombre_cliente" name="nombre_cliente" required>
