@@ -1,4 +1,7 @@
 <?php
+print_r($_POST);
+die();
+
 include_once "../modelo/modCliente.php";
 //Llenado de los datos del formulario html.
 if($_POST) {
