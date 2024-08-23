@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include_once "conexion/conexionBase.php";
 class Cliente {
     private $idCliente;
@@ -90,7 +92,8 @@ class Cliente {
         $sql="insert into cliente(nombre, apellido1, apellido2, direccion, email)
 values('$this->nombre', '$this->apellido1', '$this->apellido2', '$this->direccion', '$this->email')";
         $this->con->executeQuery($sql);
-        echo "Registro exitoso";
+        $_SESSION['mensaje']="Registro exitoso";
+        header("location: ../vista/registroCliente.php");
     }
 
 }

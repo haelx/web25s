@@ -1,4 +1,9 @@
 <?php
+session_start();
+$mensaje=$_SESSION['mensaje'];
+if($mensaje!=""){
+    echo "<script>alert('$mensaje')</script>";
+}
 include_once "cabecera.php";
 include_once "menu.php";
 ?>
@@ -76,3 +81,4 @@ include_once "menu.php";
 
 <?php
 include_once "footer.php";
+$_SESSION['mensaje']="";
