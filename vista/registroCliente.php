@@ -1,4 +1,9 @@
-<?php include_once "cabecera.php"?>
+<?php
+include_once "cabecera.php";
+include_once "servicios/servicioCliente.php";
+$listaEmpleado= new servicioCliente();
+$res=$listaEmpleado->listarEmpleados();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -58,8 +63,18 @@
             </div>
             <div class="mb-3">
                 <label for="codigo_empleado_rep_ventas" class="form-label">Código del Empleado Representante de Ventas</label>
-                <input type="number" class="form-control" id="codigo_empleado_rep_ventas" name="codigo_empleado_rep_ventas">
-            </div>
+                <select class="form-control" id="codigo_empleado_rep_ventas" name="codigo_empleado_rep_ventas">
+                    <option value="">Seleccione un empleado</option>
+                    <?php
+                    if ($res->num_rows > 0) {
+                        while($row = $res->fetch_assoc()) {
+                            echo "<option value='" . $row["codigo_empleado"] . "'>" . $row["nombre"] .$row['apellido1']. "</option>";
+                        }
+                    } else {
+                        echo "<option value=''>No se encontraron empleados</option>";
+                    }
+                    ?>
+                </select>    </div>
             <div class="mb-3">
                 <label for="limite_credito" class="form-label">Límite de Crédito</label>
                 <input type="number" step="0.01" class="form-control" id="limite_credito" name="limite_credito">

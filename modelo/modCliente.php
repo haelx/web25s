@@ -290,7 +290,8 @@ class Cliente {
 
     public function registrarCliente(){
         $this->con->createConnection();
-        $sql="insert into cliente (nombre_cliente,
+        $sql="insert into cliente (
+        nombre_cliente,
         nombre_contacto,
         apellido_contacto,
         telefono,
@@ -318,8 +319,7 @@ class Cliente {
         $this->codigo_empleado_rep_ventas,
         '$this->limite_credito'
         )";
-        echo $sql;
-        echo "<br>";
         $this->con->executeQuery($sql);
+
     }
 }
